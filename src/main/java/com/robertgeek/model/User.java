@@ -2,12 +2,20 @@ package com.robertgeek.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+//@ApiModel(description = "All details about the user.")
 public class User {
 
 	private Integer id;
 	
+	@Size(min = 2, message = "The name should have at least 2 Characters")
+	//@ApiModelProperty(notes="The name should have at least 2 Characters")
 	private String  name;
 	
+	@Past(message = "The date will be in the past")
+	//@ApiModelProperty(notes="Birth date should be in the past")
 	private Date    birthDay;
 
 	public User() {
